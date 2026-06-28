@@ -275,10 +275,10 @@
 
 /* APP WRAPPER */
 .app-wrapper { display: none; }
-.app-wrapper.active { display: block; overflow-x: hidden; padding-top: 48px; }
+.app-wrapper.active { display: block; overflow-x: hidden; padding-top: 90px; }
 .app-wrapper.active .gdpr-banner { display: none !important; }
-.app-wrapper.active .view.active{height:calc(100vh - 48px);}
-@media(max-width:768px){.app-wrapper.active .view.active{height:calc(100vh - 110px);}}
+.app-wrapper.active .view.active{height:calc(100vh - 90px);}
+@media(max-width:768px){.app-wrapper.active #appNavBar{display:none;}.app-wrapper.active .view.active{height:calc(100vh - 110px);}}
 .landing-page.hidden { display: none; }
 
 @keyframes pulse { 0%,100%{opacity:1;} 50%{opacity:0.5;} }
@@ -500,6 +500,13 @@
       <button onclick="doctorLogout()" style="background:rgba(239,68,68,0.15);border:1px solid rgba(239,68,68,0.3);color:#fca5a5;padding:5px 11px;border-radius:7px;font-size:12px;cursor:pointer;font-family:inherit;font-weight:600;" title="Abmelden">Abmelden</button>
     </div>
   </div>
+  <div id="appNavBar" style="position:fixed;top:48px;left:0;right:0;z-index:199;background:white;border-bottom:1px solid #e2e8f0;height:42px;display:flex;align-items:center;padding:0 12px;gap:2px;box-shadow:0 1px 4px rgba(0,0,0,0.06);">
+    <button class="nav-tab active" onclick="switchView('clinic',this)">Praxis</button>
+    <button class="nav-tab" onclick="switchView('patient',this)">Patient</button>
+    <button class="nav-tab vertretung-tab" onclick="switchView('vertretung',this)">Vertretung<span class="new-badge">NEU</span></button>
+    <button class="nav-tab" onclick="switchView('dashboard',this)">Dashboard</button>
+    <button class="nav-tab" onclick="switchView('settings',this)">Einstellungen</button>
+  </div>
   <div>
 <!DOCTYPE html>
 <html lang="de" dir="ltr">
@@ -547,9 +554,9 @@
 
   /* VIEWS */
   .view{display:none;}
-  .view.active{display:flex;height:calc(100vh - 48px);}
+  .view.active{display:flex;height:calc(100vh - 90px);}
   @supports(padding-bottom: env(safe-area-inset-bottom)){
-    .view.active{height:calc(100vh - 48px - env(safe-area-inset-bottom));}
+    .view.active{height:calc(100vh - 90px - env(safe-area-inset-bottom));}
   }
 
   /* SIDEBAR */
@@ -1007,7 +1014,7 @@
 
     /* Views take full screen minus top bar + bottom nav */
     .view.active{
-      height:calc(100vh - 48px - 62px);
+      height:calc(100vh - 110px);
       flex-direction:column;
     }
 
@@ -1050,7 +1057,7 @@
 
     /* Kartei panel — full screen overlay on mobile */
     .kartei-panel{
-      position:fixed;inset:48px 0 62px 0;
+      position:fixed;inset:48px 0 62px 0;/* mobile: top-bar only, no nav tab bar */
       width:100% !important;
       z-index:120;
       transform:translateX(100%);
@@ -1137,9 +1144,10 @@
   [data-theme="dark"] body{background:#0f172a;color:#e2e8f0;}
   [data-theme="dark"] .top-nav{background:#1e293b;border-bottom-color:#334155;}
   [data-theme="dark"] .logo-text{color:#e2e8f0;}
+  [data-theme="dark"] #appNavBar{background:#1e293b;border-bottom-color:#334155;}
   [data-theme="dark"] .nav-tab{color:#94a3b8;background:transparent;}
   [data-theme="dark"] .nav-tabs{background:#0f172a;}
-  [data-theme="dark"] .nav-tab.active{background:#1e293b;color:#93c5fd;box-shadow:0 1px 4px rgba(0,0,0,0.3);}
+  [data-theme="dark"] .nav-tab.active{background:#0f172a;color:#93c5fd;box-shadow:0 1px 4px rgba(0,0,0,0.3);}
   [data-theme="dark"] .lang-btn{background:#1e293b;color:#94a3b8;border-color:#475569;}
   [data-theme="dark"] .lang-btn.active{background:#1e40af;color:white;}
   [data-theme="dark"] #darkToggle{background:#334155;color:#e2e8f0;}
@@ -3969,12 +3977,7 @@ window.addEventListener('load', function() {
 });
 
 function goBack() {
-  document.getElementById('appWrapper').classList.remove('active');
-  const lp = document.getElementById('landingPage');
-  lp.classList.remove('hidden');
-  lp.style.visibility = 'visible';
-  lp.style.position = '';
-  window.scrollTo(0, 0);
+  window.history.back();
 }
 
 function scrollToSection(id) {
