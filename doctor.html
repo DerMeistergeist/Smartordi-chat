@@ -275,11 +275,10 @@
 
 /* APP WRAPPER */
 .app-wrapper { display: none; }
-.app-wrapper.active { display: block; overflow-x: hidden; }
+.app-wrapper.active { display: block; overflow-x: hidden; padding-top: 48px; }
 .app-wrapper.active .gdpr-banner { display: none !important; }
-.app-wrapper.active .top-nav { top: 40px !important; }
-.app-wrapper.active .view.active{height:calc(100vh - 100px);}
-@media(max-width:768px){.app-wrapper.active .view.active{height:calc(100vh - 154px);}}
+.app-wrapper.active .view.active{height:calc(100vh - 48px);}
+@media(max-width:768px){.app-wrapper.active .view.active{height:calc(100vh - 110px);}}
 .landing-page.hidden { display: none; }
 
 @keyframes pulse { 0%,100%{opacity:1;} 50%{opacity:0.5;} }
@@ -481,9 +480,25 @@
 
 <!-- ══ APP ═══════════════════════════════════════════════════════════════ -->
 <div class="app-wrapper" id="appWrapper">
-  <div style="position:fixed;top:0;left:0;right:0;z-index:200;background:#0f172a;padding:8px 16px;display:flex;align-items:center;justify-content:space-between;gap:12px;">
-    <button onclick="goBack()" style="background:rgba(255,255,255,0.1);border:none;color:#fff;padding:6px 14px;border-radius:8px;cursor:pointer;font-size:13px;font-weight:600;">← Zurück</button>
-    <span style="color:rgba(255,255,255,0.6);font-size:13px;margin-left:8px;">Demo-Modus</span>
+  <div id="appTopBar" style="position:fixed;top:0;left:0;right:0;z-index:200;background:#0f172a;padding:0 16px;height:48px;display:flex;align-items:center;justify-content:space-between;gap:12px;">
+    <div style="display:flex;align-items:center;gap:12px;">
+      <button onclick="goBack()" style="background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.15);color:#fff;padding:5px 12px;border-radius:8px;cursor:pointer;font-size:13px;font-weight:600;display:flex;align-items:center;gap:6px;white-space:nowrap;">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>Zurück
+      </button>
+      <div style="display:flex;align-items:center;gap:8px;">
+        <div style="width:28px;height:28px;background:linear-gradient(135deg,#1e40af,#1d4ed8);border-radius:7px;display:flex;align-items:center;justify-content:center;">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+        </div>
+        <span style="color:white;font-size:14px;font-weight:800;letter-spacing:-0.3px;">Smartordi<span style="color:#60a5fa;">.chat.eu</span></span>
+      </div>
+    </div>
+    <div style="display:flex;align-items:center;gap:8px;">
+      <span style="background:rgba(255,255,255,0.1);color:rgba(255,255,255,0.55);font-size:11px;font-weight:700;padding:3px 8px;border-radius:6px;letter-spacing:0.5px;">DEMO</span>
+      <button id="darkToggle" onclick="toggleDark()" style="background:rgba(255,255,255,0.1);border:none;color:rgba(255,255,255,0.8);padding:5px 8px;border-radius:7px;font-size:15px;cursor:pointer;line-height:1;" title="Dunkelmodus">◑</button>
+      <div style="width:30px;height:30px;background:#1e40af;border-radius:50%;display:flex;align-items:center;justify-content:center;color:white;font-size:13px;font-weight:700;flex-shrink:0;">S</div>
+      <span id="doctorNameDisplay" style="color:rgba(255,255,255,0.9);font-size:13px;font-weight:600;">Dr. Sarah Ahmed</span>
+      <button onclick="doctorLogout()" style="background:rgba(239,68,68,0.15);border:1px solid rgba(239,68,68,0.3);color:#fca5a5;padding:5px 11px;border-radius:7px;font-size:12px;cursor:pointer;font-family:inherit;font-weight:600;" title="Abmelden">Abmelden</button>
+    </div>
   </div>
   <div>
 <!DOCTYPE html>
@@ -532,9 +547,9 @@
 
   /* VIEWS */
   .view{display:none;}
-  .view.active{display:flex;height:calc(100vh - 60px);}
+  .view.active{display:flex;height:calc(100vh - 48px);}
   @supports(padding-bottom: env(safe-area-inset-bottom)){
-    .view.active{height:calc(100vh - 60px - env(safe-area-inset-bottom));}
+    .view.active{height:calc(100vh - 48px - env(safe-area-inset-bottom));}
   }
 
   /* SIDEBAR */
@@ -987,19 +1002,12 @@
   /* ══ RESPONSIVE BREAKPOINTS ══ */
   @media (max-width: 768px) {
 
-    /* Top nav — hide heavy elements */
-    .top-nav{padding:0 12px;height:52px;}
-    .logo-text{font-size:14px;}
-    .nav-tabs{display:none;}
-    .lang-switcher{display:none;}
-    .top-nav > div:last-child > span{display:none;}
-
     /* Show mobile bottom nav */
     .mobile-bottom-nav{display:block;}
 
-    /* Views take full screen minus nav bars */
+    /* Views take full screen minus top bar + bottom nav */
     .view.active{
-      height:calc(100vh - 52px - 62px);
+      height:calc(100vh - 48px - 62px);
       flex-direction:column;
     }
 
@@ -1042,7 +1050,7 @@
 
     /* Kartei panel — full screen overlay on mobile */
     .kartei-panel{
-      position:fixed;inset:52px 0 62px 0;
+      position:fixed;inset:48px 0 62px 0;
       width:100% !important;
       z-index:120;
       transform:translateX(100%);
@@ -1271,34 +1279,7 @@
   </div>
 </nav>
 
-<!-- NAV -->
-<nav class="top-nav">
-  <div class="logo">
-    <div class="logo-icon">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
-    </div>
-    <div class="logo-text">Smartordi<span>.chat.eu</span></div>
-  </div>
-  <div class="nav-tabs">
-    <button class="nav-tab active" onclick="switchView('clinic',this)">Praxis</button>
-    <button class="nav-tab" onclick="switchView('patient',this)">Patient</button>
-    <button class="nav-tab vertretung-tab" onclick="switchView('vertretung',this)">Vertretung<span class="new-badge">NEU</span></button>
-    <button class="nav-tab" onclick="switchView('dashboard',this)">Dashboard</button>
-    <button class="nav-tab" onclick="switchView('settings',this)">Einstellungen</button>
-  </div>
-  <div style="display:flex;align-items:center;gap:12px;">
-    <div class="lang-switcher">
-      <button class="lang-btn active">DE</button>
-      <button class="lang-btn">EN</button>
-    </div>
-    <div style="display:flex;align-items:center;gap:8px;">
-      <button id="darkToggle" onclick="toggleDark()" style="background:#f1f5f9;border:none;color:#64748b;padding:5px 9px;border-radius:7px;font-size:16px;cursor:pointer;line-height:1;" title="Dunkelmodus">◑</button>
-      <div style="width:32px;height:32px;background:#1e40af;border-radius:50%;display:flex;align-items:center;justify-content:center;color:white;font-size:14px;font-weight:700;">S</div>
-      <span id="doctorNameDisplay" style="color:#0f172a;font-size:13px;font-weight:600;">Dr. Sarah Ahmed</span>
-      <button onclick="doctorLogout()" style="background:#f1f5f9;border:none;color:#64748b;padding:5px 10px;border-radius:7px;font-size:11px;cursor:pointer;font-family:inherit;font-weight:600;">Abmelden</button>
-    </div>
-  </div>
-</nav>
+
 
 <!-- ══ CLINIC VIEW ══ -->
 <div id="view-clinic" class="view active">
