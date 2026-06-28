@@ -395,7 +395,7 @@ body{
 <!-- TOP BAR -->
 <div class="topbar">
   <div class="topbar-logo">
-    <div class="topbar-icon">💬</div>
+    <div class="topbar-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="white" stroke="white" stroke-width="0"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
     <div class="topbar-name">Smartordi<span>.chat</span></div>
   </div>
   <div class="topbar-user">
@@ -421,7 +421,7 @@ body{
       </div>
       <div class="chat-header-actions">
         <button class="chat-action info" onclick="showToast('ℹ️ Ordination: Steingasse 6A, 4020 Linz')">ℹ️</button>
-        <button class="chat-action call" onclick="showToast('📞 Anruf wird gestartet...')">📞</button>
+        <button class="chat-action call" onclick="showToast('Anruf wird gestartet...')" title="Anrufen"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.37h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 8.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></button>
       </div>
     </div>
 
@@ -503,16 +503,16 @@ body{
         </div>
       </div>
 
-      <div class="system-msg">🔒 Ende-zu-Ende verschlüsselt · DSGVO-konform</div>
+      <div class="system-msg">Ende-zu-Ende verschlüsselt · DSGVO-konform</div>
     </div>
 
     <div class="chat-input-area">
       <div class="chat-input-wrap">
-        <button class="attach-btn" onclick="showToast('📎 Datei anhängen...')">📎</button>
+        <button class="attach-btn" onclick="showToast('Datei anhängen...')" title="Anhang"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48"/></svg></button>
         <textarea class="chat-input" id="chatInput" placeholder="Nachricht schreiben..." rows="1"
           oninput="autoResize(this)"
           onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();sendMsg();}"></textarea>
-        <button class="attach-btn" onclick="showToast('🎤 Sprachnachricht...')">🎤</button>
+        <button class="attach-btn" onclick="showToast('Sprachnachricht...')" title="Sprache"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg></button>
       </div>
       <button class="send-btn" onclick="sendMsg()">➤</button>
     </div>
@@ -521,7 +521,7 @@ body{
   <!-- ── TERMINE ── -->
   <div class="view" id="view-termine">
     <div class="view-header">
-      <div class="view-title">📅 Meine Termine</div>
+      <div class="view-title">Meine Termine</div>
       <div class="view-sub">Ordination Dr. Sarah Ahmed · Linz</div>
     </div>
 
@@ -638,7 +638,7 @@ body{
       <div class="section-title" style="margin-top:14px;">Befunde</div>
 
       <div class="doc-card" onclick="showToast('📄 Befundbericht_2026.pdf wird heruntergeladen...')">
-        <div class="doc-icon-box" style="background:#f0fdfa;">📋</div>
+        <div class="doc-icon-box" style="background:#f0fdfa;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0891b2" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
         <div class="doc-info">
           <div class="doc-title">Befundbericht Juni 2026</div>
           <div class="doc-meta">Blutbild · 03.06.2026 · 245 KB</div>
@@ -647,7 +647,7 @@ body{
       </div>
 
       <div class="doc-card" onclick="showToast('📄 Befund_März_2026.pdf wird heruntergeladen...')">
-        <div class="doc-icon-box" style="background:#f0fdfa;">📋</div>
+        <div class="doc-icon-box" style="background:#f0fdfa;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0891b2" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
         <div class="doc-info">
           <div class="doc-title">Befundbericht März 2026</div>
           <div class="doc-meta">Allgemein · 15.03.2026 · 189 KB</div>
@@ -657,8 +657,8 @@ body{
 
       <div class="section-title" style="margin-top:14px;">Rezepte</div>
 
-      <div class="doc-card" onclick="showToast('💊 Rezept_Ramipril.pdf wird heruntergeladen...')">
-        <div class="doc-icon-box" style="background:#fef9c3;">💊</div>
+      <div class="doc-card" onclick="showToast('Rezept_Ramipril.pdf wird heruntergeladen...')">
+        <div class="doc-icon-box" style="background:#fef9c3;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#d97706" stroke-width="2"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg></div>
         <div class="doc-info">
           <div class="doc-title">Rezept – Ramipril 5mg</div>
           <div class="doc-meta">Dr. Sarah Ahmed · 03.06.2026</div>
@@ -715,12 +715,12 @@ body{
 <!-- BOTTOM NAV -->
 <nav class="bottom-nav">
   <button class="nav-item active" id="nav-chat" onclick="switchView('chat')">
-    <span class="nav-icon">💬</span>
+    <span class="nav-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span>
     <span>Chat</span>
     <span class="nav-badge">2</span>
   </button>
   <button class="nav-item" id="nav-termine" onclick="switchView('termine')">
-    <span class="nav-icon">📅</span>
+    <span class="nav-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></span>
     <span>Termine</span>
   </button>
   <button class="nav-item" id="nav-dokumente" onclick="switchView('dokumente')">
@@ -728,7 +728,7 @@ body{
     <span>Dokumente</span>
   </button>
   <button class="nav-item" id="nav-profil" onclick="switchView('profil')">
-    <span class="nav-icon">👤</span>
+    <span class="nav-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></span>
     <span>Profil</span>
   </button>
 </nav>
@@ -818,8 +818,8 @@ function selectSlot(el,time){
 }
 
 function bookTermin(){
-  if(!selectedDay){showToast('⚠️ Bitte zuerst einen Tag wählen');return;}
-  if(!selectedSlot){showToast('⚠️ Bitte eine Uhrzeit wählen');return;}
+  if(!selectedDay){showToast('Bitte zuerst einen Tag wählen');return;}
+  if(!selectedSlot){showToast('Bitte eine Uhrzeit wählen');return;}
   const months=['Januar','Februar','März','April','Mai','Juni'];
   showToast(`✓ Termin gebucht: ${selectedDay}. Juni um ${selectedSlot} Uhr`,'success');
   selectedSlot=null;

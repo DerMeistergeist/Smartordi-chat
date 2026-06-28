@@ -278,6 +278,8 @@
 .app-wrapper.active { display: block; overflow-x: hidden; }
 .app-wrapper.active .gdpr-banner { display: none !important; }
 .app-wrapper.active .top-nav { top: 40px !important; }
+.app-wrapper.active .view.active{height:calc(100vh - 100px);}
+@media(max-width:768px){.app-wrapper.active .view.active{height:calc(100vh - 154px);}}
 .landing-page.hidden { display: none; }
 
 @keyframes pulse { 0%,100%{opacity:1;} 50%{opacity:0.5;} }
@@ -1027,12 +1029,9 @@
       padding:0 8px;height:32px;font-size:12px;
     }
     /* Hide text labels on action buttons mobile */
-    #karteiBtn{font-size:0;width:36px;padding:0;}
-    #karteiBtn::before{content:'📋';font-size:16px;}
-    .action-btn.transfer-btn{font-size:0;width:36px;padding:0;}
-    .action-btn.transfer-btn::before{content:'🔄';font-size:16px;}
-    .action-btn.call{font-size:0;width:36px;padding:0;}
-    .action-btn.call::before{content:'📞';font-size:16px;}
+    #karteiBtn{font-size:12px;width:auto;padding:0 8px;}
+    .action-btn.transfer-btn{font-size:12px;width:auto;padding:0 8px;}
+    .action-btn.call{font-size:12px;width:auto;padding:0 8px;}
 
     /* Messages padding */
     .messages{padding:14px 12px;gap:10px;}
@@ -1126,6 +1125,108 @@
   .scrollbar::-webkit-scrollbar{width:4px;}
   .scrollbar::-webkit-scrollbar-track{background:transparent;}
   .scrollbar::-webkit-scrollbar-thumb{background:#e2e8f0;border-radius:2px;}
+  /* ══ DARK MODE ══ */
+  [data-theme="dark"] body{background:#0f172a;color:#e2e8f0;}
+  [data-theme="dark"] .top-nav{background:#1e293b;border-bottom-color:#334155;}
+  [data-theme="dark"] .logo-text{color:#e2e8f0;}
+  [data-theme="dark"] .nav-tab{color:#94a3b8;background:transparent;}
+  [data-theme="dark"] .nav-tabs{background:#0f172a;}
+  [data-theme="dark"] .nav-tab.active{background:#1e293b;color:#93c5fd;box-shadow:0 1px 4px rgba(0,0,0,0.3);}
+  [data-theme="dark"] .lang-btn{background:#1e293b;color:#94a3b8;border-color:#475569;}
+  [data-theme="dark"] .lang-btn.active{background:#1e40af;color:white;}
+  [data-theme="dark"] #darkToggle{background:#334155;color:#e2e8f0;}
+  [data-theme="dark"] #doctorNameDisplay{color:#e2e8f0;}
+  [data-theme="dark"] .clinic-sidebar{background:#162032;border-right-color:#334155;}
+  [data-theme="dark"] .sidebar-header{background:#1e293b;border-bottom-color:#334155;}
+  [data-theme="dark"] .sidebar-title{color:#e2e8f0;}
+  [data-theme="dark"] .search-box input{background:#0f172a;border-color:#334155;color:#e2e8f0;}
+  [data-theme="dark"] .patient-item{border-bottom-color:#334155;}
+  [data-theme="dark"] .patient-item:hover{background:#1e3a5f;}
+  [data-theme="dark"] .patient-item.active{background:#1e3a5f;}
+  [data-theme="dark"] .patient-name{color:#e2e8f0;}
+  [data-theme="dark"] .patient-preview{color:#94a3b8;}
+  [data-theme="dark"] .chat-area{background:#0f172a;}
+  [data-theme="dark"] .chat-header{background:#1e293b;border-bottom-color:#334155;}
+  [data-theme="dark"] .chat-patient-name{color:#e2e8f0;}
+  [data-theme="dark"] .action-btn{background:#1e293b;border-color:#334155;color:#94a3b8;}
+  [data-theme="dark"] .action-btn:hover{background:#1e3a5f;border-color:#3b82f6;color:#93c5fd;}
+  [data-theme="dark"] .messages{background:#0f172a;}
+  [data-theme="dark"] .msg-row.in .msg-bubble{background:#1e293b;color:#e2e8f0;}
+  [data-theme="dark"] .date-divider{color:#64748b;}
+  [data-theme="dark"] .date-divider::before,[data-theme="dark"] .date-divider::after{background:#334155;}
+  [data-theme="dark"] .system-msg{background:#1e293b;border-color:#334155;color:#94a3b8;}
+  [data-theme="dark"] .chat-input-area{background:#1e293b;border-top-color:#334155;}
+  [data-theme="dark"] .input-row{background:#0f172a;border-color:#334155;}
+  [data-theme="dark"] .msg-input{color:#e2e8f0;background:transparent;}
+  [data-theme="dark"] .input-btn{color:#94a3b8;}
+  [data-theme="dark"] .input-btn:hover{background:#1e3a5f;color:#93c5fd;}
+  [data-theme="dark"] .patient-panel{background:#1e293b;border-left-color:#334155;}
+  [data-theme="dark"] .panel-section-title{color:#94a3b8;}
+  [data-theme="dark"] .info-row{border-bottom-color:#334155;}
+  [data-theme="dark"] .info-label{color:#94a3b8;}
+  [data-theme="dark"] .info-value{color:#e2e8f0;}
+  [data-theme="dark"] .kartei-panel{background:#1e293b;border-left-color:#334155;}
+  [data-theme="dark"] .kartei-tabs{background:#1e293b;border-bottom-color:#334155;}
+  [data-theme="dark"] .kartei-tab{color:#94a3b8;}
+  [data-theme="dark"] .kartei-tab.active{color:#93c5fd;border-bottom-color:#3b82f6;background:linear-gradient(180deg,transparent 60%,#1e3a5f 100%);}
+  [data-theme="dark"] .kartei-body{background:#1e293b;}
+  [data-theme="dark"] .kartei-patient-bar{background:#162032;border-bottom-color:#334155;}
+  [data-theme="dark"] .kartei-patient-name{color:#e2e8f0;}
+  [data-theme="dark"] .kartei-patient-meta{color:#94a3b8;}
+  [data-theme="dark"] .k-filter-bar{background:#162032;border-bottom-color:#334155;}
+  [data-theme="dark"] .k-search-input{background:#0f172a;border-color:#334155;color:#e2e8f0;}
+  [data-theme="dark"] .k-visit{border-bottom-color:#334155;}
+  [data-theme="dark"] .k-visit:hover{background:#162032;}
+  [data-theme="dark"] .k-visit-diag{color:#e2e8f0;}
+  [data-theme="dark"] .k-visit-notes{color:#94a3b8;}
+  [data-theme="dark"] .k-section{border-bottom-color:#334155;}
+  [data-theme="dark"] .k-row{border-bottom-color:#1e293b;}
+  [data-theme="dark"] .k-label{color:#94a3b8;}
+  [data-theme="dark"] .k-value{color:#e2e8f0;}
+  [data-theme="dark"] .k-form-input{background:#0f172a;border-color:#334155;color:#e2e8f0;}
+  [data-theme="dark"] .vertretung-main{background:#0f172a;}
+  [data-theme="dark"] .vertretung-title{color:#e2e8f0;}
+  [data-theme="dark"] .vacation-card{background:#1e293b;border-color:#334155;}
+  [data-theme="dark"] .vacation-title{color:#e2e8f0;}
+  [data-theme="dark"] .vacation-dates{background:#162032;border-color:#334155;}
+  [data-theme="dark"] .date-value{color:#e2e8f0;}
+  [data-theme="dark"] .transfer-stat{background:#162032;border-color:#334155;}
+  [data-theme="dark"] .transfer-stat-value{color:#e2e8f0;}
+  [data-theme="dark"] .patient-transfer-list{background:#1e293b;border-color:#334155;}
+  [data-theme="dark"] .list-header{border-bottom-color:#334155;}
+  [data-theme="dark"] .list-title{color:#e2e8f0;}
+  [data-theme="dark"] .transfer-patient-item{border-bottom-color:#334155;}
+  [data-theme="dark"] .transfer-patient-item:hover{background:#162032;}
+  [data-theme="dark"] .tp-name{color:#e2e8f0;}
+  [data-theme="dark"] .tp-details{color:#94a3b8;}
+  [data-theme="dark"] .network-map{background:#1e293b;border-color:#334155;}
+  [data-theme="dark"] .network-title{color:#e2e8f0;}
+  [data-theme="dark"] .clinic-node{background:#162032;border-color:#334155;}
+  [data-theme="dark"] .clinic-node-name{color:#e2e8f0;}
+  [data-theme="dark"] .clinic-node-detail{color:#94a3b8;}
+  [data-theme="dark"] .dashboard{background:#0f172a;}
+  [data-theme="dark"] .stat-card{background:#1e293b;box-shadow:0 2px 12px rgba(0,0,0,0.3);}
+  [data-theme="dark"] .stat-value{color:#e2e8f0;}
+  [data-theme="dark"] .stat-label{color:#94a3b8;}
+  [data-theme="dark"] .dash-card{background:#1e293b;}
+  [data-theme="dark"] .dash-card-header{color:#e2e8f0;border-bottom-color:#334155;}
+  [data-theme="dark"] .activity-text{color:#cbd5e1;}
+  [data-theme="dark"] .compliance-bar{background:#1e293b;box-shadow:0 4px 20px rgba(0,0,0,0.3);}
+  [data-theme="dark"] .mobile-bottom-nav{background:#1e293b;border-top-color:#334155;}
+  [data-theme="dark"] .mobile-nav-item{color:#64748b;}
+  [data-theme="dark"] .mobile-nav-item.active{color:#3b82f6;}
+  [data-theme="dark"] .mobile-chat-back{background:#1e293b;border-bottom-color:#334155;}
+  [data-theme="dark"] .mobile-chat-back-name{color:#e2e8f0;}
+  [data-theme="dark"] .modal{background:#1e293b;}
+  [data-theme="dark"] .modal-header{border-bottom-color:#334155;}
+  [data-theme="dark"] .modal-title{color:#e2e8f0;}
+  [data-theme="dark"] .modal-footer{border-top-color:#334155;}
+  [data-theme="dark"] .form-input{background:#0f172a;border-color:#334155;color:#e2e8f0;}
+  [data-theme="dark"] .form-label{color:#94a3b8;}
+  [data-theme="dark"] .clinic-option{border-color:#334155;}
+  [data-theme="dark"] .clinic-option:hover{border-color:#3b82f6;background:#1e3a5f;}
+  [data-theme="dark"] .clinic-option-name{color:#e2e8f0;}
+
 </style>
 </head>
 <body>
@@ -1143,28 +1244,28 @@
 <nav class="mobile-bottom-nav">
   <div class="mobile-nav-items">
     <button class="mobile-nav-item active" id="mnav-clinic" onclick="switchView('clinic',null);mnavActive('mnav-clinic')">
-      <span class="mnav-icon">🏥</span>
+      <span class="mnav-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></span>
       <span>Praxis</span>
     </button>
     <button class="mobile-nav-item" id="mnav-patient" onclick="switchView('patient',null);mnavActive('mnav-patient')">
-      <span class="mnav-icon">👤</span>
+      <span class="mnav-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></span>
       <span>Patient</span>
     </button>
     <button class="mobile-nav-item" id="mnav-kartei" onclick="mobileOpenKartei();mnavActive('mnav-kartei')">
-      <span class="mnav-icon">📋</span>
+      <span class="mnav-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></span>
       <span>Kartei</span>
     </button>
     <button class="mobile-nav-item" id="mnav-vertretung" onclick="switchView('vertretung',null);mnavActive('mnav-vertretung')">
-      <span class="mnav-icon">🔄</span>
+      <span class="mnav-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><polyline points="7 23 3 19 7 15"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg></span>
       <span>Vertretung</span>
       <span class="mobile-nav-badge">NEU</span>
     </button>
     <button class="mobile-nav-item" id="mnav-dashboard" onclick="switchView('dashboard',null);mnavActive('mnav-dashboard')">
-      <span class="mnav-icon">📊</span>
+      <span class="mnav-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></span>
       <span>Dashboard</span>
     </button>
     <button class="mobile-nav-item" id="mnav-settings" onclick="switchView('settings',null);mnavActive('mnav-settings')">
-      <span class="mnav-icon">⚙️</span>
+      <span class="mnav-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></span>
       <span>Einstellungen</span>
     </button>
   </div>
@@ -1173,18 +1274,17 @@
 <!-- NAV -->
 <nav class="top-nav">
   <div class="logo">
-    <span style="font-size:18px;">🇦🇹</span>
-    <div class="logo-icon" style="background:white;border-radius:9px;width:34px;height:34px;display:flex;align-items:center;justify-content:center;">
-      <span style="font-size:18px;">🩺</span>
+    <div class="logo-icon">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
     </div>
     <div class="logo-text">Smartordi<span>.chat.eu</span></div>
   </div>
   <div class="nav-tabs">
-    <button class="nav-tab active" onclick="switchView('clinic',this)">🏥 Praxis</button>
-    <button class="nav-tab" onclick="switchView('patient',this)">👤 Patient</button>
-    <button class="nav-tab vertretung-tab" onclick="switchView('vertretung',this)">🔄 Vertretung<span class="new-badge">NEU</span></button>
-    <button class="nav-tab" onclick="switchView('dashboard',this)">📊 Dashboard</button>
-    <button class="nav-tab" onclick="switchView('settings',this)">⚙️ Einstellungen</button>
+    <button class="nav-tab active" onclick="switchView('clinic',this)">Praxis</button>
+    <button class="nav-tab" onclick="switchView('patient',this)">Patient</button>
+    <button class="nav-tab vertretung-tab" onclick="switchView('vertretung',this)">Vertretung<span class="new-badge">NEU</span></button>
+    <button class="nav-tab" onclick="switchView('dashboard',this)">Dashboard</button>
+    <button class="nav-tab" onclick="switchView('settings',this)">Einstellungen</button>
   </div>
   <div style="display:flex;align-items:center;gap:12px;">
     <div class="lang-switcher">
@@ -1192,9 +1292,10 @@
       <button class="lang-btn">EN</button>
     </div>
     <div style="display:flex;align-items:center;gap:8px;">
+      <button id="darkToggle" onclick="toggleDark()" style="background:#f1f5f9;border:none;color:#64748b;padding:5px 9px;border-radius:7px;font-size:16px;cursor:pointer;line-height:1;" title="Dunkelmodus">◑</button>
       <div style="width:32px;height:32px;background:#1e40af;border-radius:50%;display:flex;align-items:center;justify-content:center;color:white;font-size:14px;font-weight:700;">S</div>
-      <span style="color:rgba(255,255,255,0.8);font-size:13px;">Dr. Sarah Ahmed</span>
-      <button onclick="doctorLogout()" style="background:rgba(255,255,255,0.1);border:none;color:rgba(255,255,255,0.6);padding:5px 10px;border-radius:7px;font-size:11px;cursor:pointer;font-family:inherit;font-weight:600;">Abmelden</button>
+      <span id="doctorNameDisplay" style="color:#0f172a;font-size:13px;font-weight:600;">Dr. Sarah Ahmed</span>
+      <button onclick="doctorLogout()" style="background:#f1f5f9;border:none;color:#64748b;padding:5px 10px;border-radius:7px;font-size:11px;cursor:pointer;font-family:inherit;font-weight:600;">Abmelden</button>
     </div>
   </div>
 </nav>
@@ -1205,9 +1306,9 @@
     <div class="sidebar-header">
       <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;">
         <div class="sidebar-title" style="margin-bottom:0;">Patienten<span><span class="online-dot"></span><span style="font-size:12px;color:#64748b;font-weight:400;">3 online</span></span></div>
-        <button onclick="toggleAdvSearch()" style="background:#eff6ff;border:1px solid #bfdbfe;border-radius:7px;padding:4px 10px;font-size:11px;font-weight:700;color:#1e40af;cursor:pointer;" id="adv-search-btn">⚙️ Filter</button>
+        <button onclick="toggleAdvSearch()" style="background:#eff6ff;border:1px solid #bfdbfe;border-radius:7px;padding:4px 10px;font-size:11px;font-weight:700;color:#1e40af;cursor:pointer;" id="adv-search-btn">Filter</button>
       </div>
-      <div class="search-box"><span class="search-icon">🔍</span><input type="text" placeholder="Patient suchen..." oninput="filterPatientsList(this.value)"></div>
+      <div class="search-box"><span class="search-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#64748b" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></span><input type="text" placeholder="Patient suchen..." oninput="filterPatientsList(this.value)"></div>
 
       <!-- Advanced Search Panel -->
       <div id="adv-search-panel" style="display:none;margin-top:10px;background:#f8fafc;border:1px solid #e2e8f0;border-radius:10px;padding:12px;">
@@ -1263,9 +1364,9 @@
       <button class="mobile-back-btn" onclick="mobileBackToList()">‹</button>
       <div class="mobile-chat-back-name" id="mobileChatName">Thomas Müller</div>
       <div class="mobile-chat-back-actions">
-        <button class="mobile-action-icon" onclick="toggleKartei()">📋</button>
-        <button class="mobile-action-icon" onclick="showTransferModal()">🔄</button>
-        <button class="mobile-action-icon teal" onclick="showCall()">📞</button>
+        <button class="mobile-action-icon" onclick="toggleKartei()" title="Kartei"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></button>
+        <button class="mobile-action-icon" onclick="showTransferModal()" title="Weiterleiten"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><polyline points="7 23 3 19 7 15"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg></button>
+        <button class="mobile-action-icon teal" onclick="showCall()" title="Anrufen"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.37h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 8.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></button>
       </div>
     </div>
     <div class="chat-header" id="desktopChatHeader">
@@ -1278,9 +1379,9 @@
         </div>
       </div>
       <div class="chat-actions">
-        <button class="action-btn" id="karteiBtn" onclick="toggleKartei()" style="background:#f0fdfa;border-color:#1e40af;color:#1e40af;font-weight:700;">📋 Kartei öffnen</button>
-        <button class="action-btn transfer-btn" onclick="showTransferModal()">🔄 Weiterleiten</button>
-        <button class="action-btn call" onclick="showCall()">📞 Anrufen</button>
+        <button class="action-btn" id="karteiBtn" onclick="toggleKartei()" style="background:#f0fdfa;border-color:#1e40af;color:#1e40af;font-weight:700;">Kartei öffnen</button>
+        <button class="action-btn transfer-btn" onclick="showTransferModal()">Weiterleiten</button>
+        <button class="action-btn call" onclick="showCall()">Anrufen</button>
       </div>
     </div>
     <div class="messages scrollbar" id="messages">
@@ -1313,10 +1414,10 @@
     </div>
     <div class="chat-input-area">
       <div class="input-row">
-        <button class="input-btn">😊</button>
-        <button class="input-btn">📎</button>
+        <button class="input-btn" title="Emoji"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg></button>
+        <button class="input-btn" title="Anhang"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48"/></svg></button>
         <textarea class="msg-input" placeholder="Nachricht schreiben..." id="clinicInput"></textarea>
-        <button class="input-btn">🎤</button>
+        <button class="input-btn" title="Sprachnachricht"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg></button>
         <button class="send-btn" onclick="sendClinicMsg()">➤</button>
       </div>
     </div>
@@ -1352,7 +1453,7 @@
   <div class="kartei-panel scrollbar" id="karteiPanel">
     <div class="kartei-header">
       <div class="kartei-header-left">
-        <div class="kartei-header-icon">📋</div>
+        <div class="kartei-header-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
         <div>
           <div class="kartei-header-title">Digitale Kartei</div>
           <div class="kartei-header-sub">smartordi.eu</div>
@@ -1370,15 +1471,15 @@
     </div>
 
     <div class="kartei-tabs">
-      <button class="kartei-tab active" onclick="switchKarteiTab('verlauf',this)">📅 Verlauf</button>
-      <button class="kartei-tab" onclick="switchKarteiTab('stamm',this)">👤 Stamm</button>
-      <button class="kartei-tab" onclick="switchKarteiTab('anamnese',this)" style="color:#0891b2;">📋 Anamnese</button>
-      <button class="kartei-tab" onclick="switchKarteiTab('neu',this)">＋ Neu</button>
-      <button class="kartei-tab" onclick="switchKarteiTab('ueberweisung',this)" style="color:#7c3aed;">📤 Überweisung</button>
-      <button class="kartei-tab" onclick="switchKarteiTab('rezept',this)" style="color:#1e40af;">💊 Rezept</button>
-      <button class="kartei-tab" onclick="switchKarteiTab('impfung',this)" style="color:#16a34a;">💉 Impfung</button>
-      <button class="kartei-tab" onclick="switchKarteiTab('labor',this)" style="color:#dc2626;">🧪 Labor</button>
-      <button class="kartei-tab" onclick="switchKarteiTab('suche',this)" style="color:#0891b2;">🔍 Suche</button>
+      <button class="kartei-tab active" onclick="switchKarteiTab('verlauf',this)">Verlauf</button>
+      <button class="kartei-tab" onclick="switchKarteiTab('stamm',this)">Stamm</button>
+      <button class="kartei-tab" onclick="switchKarteiTab('anamnese',this)" style="color:#0891b2;">Anamnese</button>
+      <button class="kartei-tab" onclick="switchKarteiTab('neu',this)">+ Neu</button>
+      <button class="kartei-tab" onclick="switchKarteiTab('ueberweisung',this)" style="color:#7c3aed;">Überweisung</button>
+      <button class="kartei-tab" onclick="switchKarteiTab('rezept',this)" style="color:#1e40af;">Rezept</button>
+      <button class="kartei-tab" onclick="switchKarteiTab('impfung',this)" style="color:#16a34a;">Impfung</button>
+      <button class="kartei-tab" onclick="switchKarteiTab('labor',this)" style="color:#dc2626;">Labor</button>
+      <button class="kartei-tab" onclick="switchKarteiTab('suche',this)" style="color:#0891b2;">Suche</button>
     </div>
 
     <div class="kartei-body" id="karteiBody">
@@ -2785,14 +2886,14 @@ function toggleKartei(){
   const btn=document.getElementById('karteiBtn');
   if(karteiOpen){
     panel.classList.add('open');
-    if(btn){btn.textContent='📋 Kartei schließen';btn.style.background='#1e40af';btn.style.color='white';}
+    if(btn){btn.textContent='Kartei schließen';btn.style.background='#1e40af';btn.style.color='white';}
     switchKarteiTab('verlauf',document.querySelector('.kartei-tab'));
     setKarteiDate();
     renderYearPills();
     filterVisits();
   }else{
     panel.classList.remove('open');
-    if(btn){btn.textContent='📋 Kartei öffnen';btn.style.background='#f0fdfa';btn.style.color='#1e40af';}
+    if(btn){btn.textContent='Kartei öffnen';btn.style.background='#f0fdfa';btn.style.color='#1e40af';}
   }
 }
 
@@ -3795,7 +3896,7 @@ function deleteStempel(){
 function saveSettings(){
   // Update doctor name in nav
   const name = document.getElementById('setArztName')?.value||'Dr. Sarah Ahmed';
-  const nameEl = document.querySelector('.top-nav span[style*="color:rgba(255,255,255,0.8)"]');
+  const nameEl = document.getElementById('doctorNameDisplay');
   if(nameEl) nameEl.textContent = name;
   // Update uwVon field
   const fach = document.getElementById('setFach')?.value||'Allgemeinmedizin';
@@ -3845,6 +3946,23 @@ function confirmTransfer(){
   alert('✓ Weiterleitung erfolgreich!\n\nDer Patient wird automatisch per SMS benachrichtigt.\nDr. Weber erhält alle relevanten Unterlagen.');
 }
 </script>
+
+<script>
+function toggleDark(){
+  const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+  document.documentElement.setAttribute('data-theme', isDark ? 'light' : 'dark');
+  localStorage.setItem('smartordi_theme', isDark ? 'light' : 'dark');
+  const btn = document.getElementById('darkToggle');
+  if(btn) btn.textContent = isDark ? '◑' : '◐';
+}
+(function(){
+  const t = localStorage.getItem('smartordi_theme');
+  if(t === 'dark'){
+    document.documentElement.setAttribute('data-theme','dark');
+  }
+})();
+</script>
+
 </body>
 </html>
 
@@ -3870,7 +3988,12 @@ window.addEventListener('load', function() {
 });
 
 function goBack() {
-  window.location.href = 'login.html';
+  document.getElementById('appWrapper').classList.remove('active');
+  const lp = document.getElementById('landingPage');
+  lp.classList.remove('hidden');
+  lp.style.visibility = 'visible';
+  lp.style.position = '';
+  window.scrollTo(0, 0);
 }
 
 function scrollToSection(id) {
